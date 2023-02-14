@@ -18,10 +18,17 @@ RUN echo "export COMPOSER_ALLOW_SUPERUSER=1" >> ~/.bashrc
 RUN composer global require laravel/installer
 RUN composer global require laravel/laravel
 
-RUN ["/bin/bash", "-c", "echo PATH=$PATH:~/.composer/vendor/bin/ >> ~/.bashrc"]
-RUN ["/bin/bash", "-c", "source ~/.bashrc"]
-
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN pecl install redis && docker-php-ext-enable redis
 
+WORKDIR /var/www/html
+
+RUN mv ~/.composer/vendor/ .
+RUN ["/bin/bash", "-c", "echo PATH=$PATH:/var/www/html/vendor/bin/ >> ~/.bashrc"]
+RUN ["/bin/bash", "-c", "source ~/.bashrc"]
+
+COPY . .
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN composer dump-autoload
