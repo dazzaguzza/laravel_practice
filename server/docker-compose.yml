@@ -2,7 +2,7 @@ version : "3.7"
 
 services:
   web:
-    container_name: nginx
+    container_name: web
     build:
      context: ../server/nginx
     restart: always
@@ -18,7 +18,7 @@ services:
       - host.docker.internal:host-gateway
 
   app:
-    container_name: phpfpm
+    container_name: app
     build:
       context: ../laravel
     restart: unless-stopped
@@ -27,10 +27,11 @@ services:
     volumes:
       - ../laravel:/var/www/html
       - /var/www/html/vendor
+      - /var/www/html/node_modules
       - ./php/php.ini:/usr/local/etc/php/php.ini
       - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
     extra_hosts:
       - host.docker.internal:host-gateway
-    # entrypoint: sh -c "php artisan key:generate"
+    
             
 

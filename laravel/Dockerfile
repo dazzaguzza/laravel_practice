@@ -1,4 +1,10 @@
-FROM php:7.4-fpm
+FROM node:alpine as builder
+
+WORKDIR /usr/src/app
+COPY package*.json .
+RUN npm install --silent
+
+FROM php:7.4-fpm 
 
 WORKDIR /root
 RUN apt-get update            
@@ -32,3 +38,7 @@ COPY . .
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer dump-autoload
+
+RUN chmod -R 777 storage
+
+COPY --from=builder /usr/src/app .
