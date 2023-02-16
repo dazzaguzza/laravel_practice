@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     items.index from view <br>
 
     @can('create',App\Models\Item::class)

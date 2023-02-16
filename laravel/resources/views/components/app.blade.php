@@ -29,14 +29,14 @@
 
             <ul class="navbar-nav" style="margin-left: auto;">
                 @auth
-                <li class="nav-item"><span class="nav-link">logged in as: {{ auth()->user()->email }}</span></li>
+                <li class="nav-item"><span class="nav-link">{{ $userIp }} - logged in as: {{ auth()->user()->email }}</span></li>
                 <li class="nav-item"><form action="/logout" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-link nav-item">loggout</button>
                 </form></li>
                 @else
                 <li class="nav-item">
-                    <a href="/login" class="nav-link">login</a>
+                    <a href="/" class="nav-link">login</a>
                 </li>
                 @endauth
             </ul>

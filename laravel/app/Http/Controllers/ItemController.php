@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
     public function index(){
-        $items = Item::all();
-        return view('items.index',compact('items'));
+        $items = [
+            'items' => Item::all(),
+            'ip' => request()->ip()
+        ];
+
+
+        return view('items.index',$items);
     }
 
     public function create(){
