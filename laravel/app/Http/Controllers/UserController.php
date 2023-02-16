@@ -13,14 +13,22 @@ class UserController extends Controller
 {
     //
     public function index(){
-        $users = User::all();
+        // $users = User::all();
 
-        return view('users.index',compact('users'));
+        $users = [
+            'users'=>User::all(),
+            'ip'=> request()->ip()
+        ];
+        return view('users.index',$users);
     }
 
     public function create(){
-        $roles = Role::get();
-        return view('users.create',compact('roles'));
+        $roles = [
+            'roles' => Role::get(),
+            'ip'=> request()->ip()
+        ];
+
+        return view('users.create',$roles);
     }
 
     public function store(UserCreateRequest $request){
@@ -34,8 +42,8 @@ class UserController extends Controller
     }
 
     public function password_edit($id){
-        $user = User::find($id);
-        return view('users.password_edit', compact('user'));
+        $user = ['user' => User::find($id), 'ip'=> request()->ip()];
+        return view('users.password_edit', $user);
     }
 
     public function password_update(ChangePasswordRequest $request, $id){
@@ -48,8 +56,9 @@ class UserController extends Controller
 
     public function edit($id){
         $user = User::find($id);
+        $ip = request()->ip();
         $roles = Role::get();
-        return view('users.edit',compact('user', 'roles'));
+        return view('users.edit',compact('user','roles','ip'));
     }
 
     public function update(UserUpdateRequest $request, $id){

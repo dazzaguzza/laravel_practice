@@ -19,7 +19,8 @@ class ItemController extends Controller
 
     public function create(){
         $this->authorize('create',Item::class);
-        return view('items.create');
+        $ip = request()->ip();
+        return view('items.create',compact('ip'));
     }
 
     public function store(ItemRequest $request){
@@ -37,14 +38,17 @@ class ItemController extends Controller
 
     public function show($id){
         $item = Item::find($id);
+        $ip =request()->ip();
         $this->authorize('view', $item);
-        return view('items.show', compact('item'));
+        return view('items.show', compact('item','ip'));
     }
 
     public function edit($id){
         $item = Item::find($id);
+        $ip = request()->ip();
+
         $this->authorize('update', $item);
-        return view('items.edit',compact('item'));
+        return view('items.edit',compact('item','ip'));
     }
 
     public function update(ItemRequest $request, $id){

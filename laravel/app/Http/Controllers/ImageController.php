@@ -8,7 +8,8 @@ class ImageController extends Controller
 {
     public function upload()
     {
-        return view('upload.upload');
+        $ip = request()->ip();
+        return view('upload.upload', compact('ip'));
     }
 
     public function store(Request $request)

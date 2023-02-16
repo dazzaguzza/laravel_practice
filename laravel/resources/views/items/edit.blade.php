@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     items edit<br>
     <form action="/items/{{$item->id}}" method="POST">
         @csrf

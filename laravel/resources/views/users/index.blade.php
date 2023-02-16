@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <div class="d-flex justify-content-between mt-2 mb-2">
         <h4>Users</h4>
         <a href="/users/create" class="btn btn-success">create new user</a>

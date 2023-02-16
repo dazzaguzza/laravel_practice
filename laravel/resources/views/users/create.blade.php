@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <h4>create new user</h4>
     <form action="/users" method="POST">
         @csrf

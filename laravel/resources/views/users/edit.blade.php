@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
 
     <h4>Edit user</h4>
     <form action="/users/{{$user->id}}" method="POST">

@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <h4>Change password</h4>
     <form action="/users/{{ $user->id }}/password" method="POST">
         @csrf

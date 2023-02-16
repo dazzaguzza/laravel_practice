@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

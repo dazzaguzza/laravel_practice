@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     item show <br>
     <div class="from-group">
         <label for="name">

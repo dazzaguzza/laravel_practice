@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <h4>create new employee</h4>
 
     <form action="/employees" method="POST" enctype="multipart/form-data">

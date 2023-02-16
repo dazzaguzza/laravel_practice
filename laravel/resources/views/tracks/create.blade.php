@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     create new track for item : {{ $item->name }}
     <form action="/items/{{$item->id}}/tracks" method="POST">
 

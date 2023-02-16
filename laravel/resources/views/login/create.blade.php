@@ -1,4 +1,4 @@
-<x-app>
+<x-app :userIp="$ip">
     <form action="/login" method="POST">
 
     @csrf

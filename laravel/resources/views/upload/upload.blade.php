@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Laravel File Storage with Amazon S3 </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-</head>
+</head> -->
 
+<x-app :userIp="$ip">
 <body>
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
 
@@ -53,5 +54,5 @@
     </div>
 </div>
 </body>
-
-</html>
+</x-app>
+<!-- </html> -->

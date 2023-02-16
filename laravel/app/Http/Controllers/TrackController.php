@@ -10,8 +10,9 @@ use App\Models\Item;
 class TrackController extends Controller
 {
     public function create($item_id){
-        $item = Item::find($item_id);
-        return view('tracks.create',compact('item'));
+        $item = ['item'=>Item::find($item_id),'ip'=> request()->ip()];
+
+        return view('tracks.create',$item);
     }
 
     public function store(TrackRequest $request, $item_id){
