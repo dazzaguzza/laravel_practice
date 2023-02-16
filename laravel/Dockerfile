@@ -29,8 +29,8 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN pecl install redis && docker-php-ext-enable redis
 
 WORKDIR /var/www/html
-
 RUN mv ~/.composer/vendor/ .
+
 RUN ["/bin/bash", "-c", "echo PATH=$PATH:/var/www/html/vendor/bin/ >> ~/.bashrc"]
 RUN ["/bin/bash", "-c", "source ~/.bashrc"]
 
@@ -40,5 +40,5 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer dump-autoload
 
 RUN chmod -R 777 storage
-
+RUN composer require league/flysystem-aws-s3-v3 "~1.0" --update-with-all-dependencies
 COPY --from=builder /usr/src/app .

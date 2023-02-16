@@ -21,6 +21,9 @@
                 <li class="nav-item">
                     <a href="/employees" class="nav-link">employees</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/image-upload" class="nav-link">upload</a>
+                </li>
             </ul>
 
 

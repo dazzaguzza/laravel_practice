@@ -6,7 +6,7 @@ use App\Http\Controllers\TrackController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
-
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +47,6 @@ Route::patch('users/{id}/password',[UserController::class,'password_update']);
 Route::get('employees',[EmployeeController::class,'index']);
 Route::get('employees/create',[EmployeeController::class,'create']);
 Route::post('employees',[EmployeeController::class,'store']);
+
+Route::get('image-upload', [ ImageController::class, 'upload' ])->name('image.upload');
+Route::post('image-store', [ ImageController::class, 'store' ])->name('image.upload.post');
