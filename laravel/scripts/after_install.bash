@@ -7,5 +7,5 @@ cd laravel_practice/docker
 sudo docker rmi $(docker images -q) 
 sudo docker-compose up --build -d
 sudo docker exec app chmod 777 -R storage/logs
-sudo docker exec app chmod 777 -R bootstrap/cache 
+sudo docker exec app chmod 777 -R bootstrap/cache  
 
