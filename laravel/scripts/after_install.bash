@@ -5,5 +5,4 @@ jq -r '{"KEYS": "VALUES"} + to_entries[] | "\(.key)=\(.value)"' secret.json | su
 # sudo rm -f secret.json
 cd laravel_practice/docker
 sudo docker-compose up --build -d
-sudo docker rmi -f $(docker images -f "dangling=true" -q)
 
