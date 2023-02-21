@@ -39,6 +39,5 @@ COPY . .
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer dump-autoload
 
-RUN chmod -R 777 storage
 RUN composer require league/flysystem-aws-s3-v3 "~1.0" --update-with-all-dependencies
 COPY --from=builder /usr/src/app .

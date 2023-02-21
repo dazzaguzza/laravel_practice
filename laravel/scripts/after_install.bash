@@ -5,6 +5,9 @@ jq -r '{"KEYS": "VALUES"} + to_entries[] | "\(.key)=\(.value)"' env.json | sudo 
 sudo rm -f env.json
 cd laravel_practice/docker
 sudo docker-compose up --build -d  
-
-   
+sudo docker 
+sudo docker system prune -f
+sudo docker volume prune -f
+sudo docker exec app chmod 777 -R storage/logs
+sudo docker exec app chmod 777 -R bootstrap/cache
 
