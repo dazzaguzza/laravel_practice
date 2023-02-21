@@ -8,6 +8,6 @@ sudo docker-compose up --build -d
 sudo docker 
 sudo docker system prune -f
 sudo docker volume prune -f
-sudo docker exec app chmod 777 -R storage/logs
+sudo docker exec app chmod 777 -R storage
 sudo docker exec app chmod 777 -R bootstrap/cache
 
