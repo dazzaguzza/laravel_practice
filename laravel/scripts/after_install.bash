@@ -6,3 +6,6 @@ jq -r '{"KEYS": "VALUES"} + to_entries[] | "\(.key)=\(.value)"' secret.json | su
 # cd laravel_practice/docker
 # sudo docker-compose up --build -d
 
+ 
+
+ 

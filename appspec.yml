@@ -8,8 +8,8 @@ hooks:
   BeforeInstall:
     - location: ./laravel/scripts/before_install.bash
       timeout: 300
-      runas: root
+      runas: ubuntu
   AfterInstall:
     - location: ./laravel/scripts/after_install.bash
       timeout: 300
-      runas: root
+      runas: ubuntu
