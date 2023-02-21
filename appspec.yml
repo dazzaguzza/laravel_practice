@@ -6,10 +6,10 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.bash
+    - location: ./laravel/scripts/before_install.bash
       timeout: 300
       runas: root
   AfterInstall:
-    - location: scripts/after_install.bash
+    - location: ./laravel/scripts/after_install.bash
       timeout: 300
       runas: root
