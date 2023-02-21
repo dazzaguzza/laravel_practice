@@ -4,7 +4,7 @@ aws secretsmanager get-secret-value --region ap-northeast-2 --secret-id env --qu
 jq -r '{"KEYS": "VALUES"} + to_entries[] | "\(.key)=\(.value)"' env.json | sudo tee laravel_practice/laravel/.env
 sudo rm -f env.json
 cd laravel_practice/docker
-sudo docker-compose up --build -d
+sudo docker-compose up --build -d  
 
- 
+   
 
