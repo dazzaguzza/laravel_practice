@@ -3,7 +3,7 @@
 
     @csrf
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">E-mail</label>
         <input type="text" id="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror">
         @error('email')
         <div class="invalid-feedback">
