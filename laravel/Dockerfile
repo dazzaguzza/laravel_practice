@@ -1,9 +1,3 @@
-# FROM node:alpine as builder
-
-# WORKDIR /usr/src/app
-# COPY package*.json .
-# RUN npm install --silent
-
 FROM php:7.4-fpm 
 
 WORKDIR /root
@@ -41,5 +35,5 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer dump-autoload
 
 RUN composer require league/flysystem-aws-s3-v3 "~1.0" --update-with-all-dependencies
-# COPY --from=builder /usr/src/app .
+
 
