@@ -8,5 +8,3 @@ sudo docker-compose up --build -d
 sudo docker exec app chmod 777 -R storage
 sudo docker exec app chmod 777 -R bootstrap
 sudo docker exec app npm run dev
-sudo docker system prune -f
-sudo docker volume prune -f
