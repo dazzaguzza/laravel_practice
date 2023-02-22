@@ -11,5 +11,5 @@ hooks:
       runas: ubuntu
   AfterInstall:
     - location: ./laravel/scripts/after_install.bash
-      timeout: 300
+      timeout: 600
       runas: ubuntu
