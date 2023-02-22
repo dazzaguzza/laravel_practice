@@ -1,8 +1,8 @@
-FROM node:alpine as builder
+# FROM node:alpine as builder
 
-WORKDIR /usr/src/app
-COPY package*.json .
-RUN npm install --silent
+# WORKDIR /usr/src/app
+# COPY package*.json .
+# RUN npm install --silent
 
 FROM php:7.4-fpm 
 
@@ -28,16 +28,18 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN pecl install redis && docker-php-ext-enable redis
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/laravel
 RUN mv ~/.composer/vendor/ .
 
 RUN ["/bin/bash", "-c", "echo PATH=$PATH:/var/www/html/vendor/bin/ >> ~/.bashrc"]
 RUN ["/bin/bash", "-c", "source ~/.bashrc"]
 
 COPY . .
-
+RUN apt-get update && apt-get install -y npm 
+RUN npm install --silent
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer dump-autoload
 
 RUN composer require league/flysystem-aws-s3-v3 "~1.0" --update-with-all-dependencies
-COPY --from=builder /usr/src/app .
+# COPY --from=builder /usr/src/app .
+
