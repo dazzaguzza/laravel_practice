@@ -7,7 +7,7 @@ RUN apt-get install git -y
 
 RUN curl -sS https://getcomposer.org/installer | php
 
-RUN mv composer.phar /usr/bin/composer
+RUN mv composer.phar /usr/bin/composer 
 
 RUN apt-get install -y zlib1g-dev && apt-get install -y libzip-dev
 RUN docker-php-ext-install zip
